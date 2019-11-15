@@ -44,6 +44,12 @@ export default {
       // 获取数据 provinceJson
       that.provinceArr = provinceJson
       that.$set(that, 'showData', provinceJson)
+      // 可自定义数据
+      // 数据从接口来，注释掉上面两行代码，用下面的接口方式获取
+      // 注意要修改data中idFieldName和nameFieldName的值
+      // idFieldName: 'code',存储省市区唯一标识，通过省份唯一标识能在接口查出对应市的数据  如本例中字段名为code
+      // nameFieldName: 'msg', 存储省市区名称的字段名  如本例中字段名为msg,  数据在components/address.js中provinceJson
+
       // this.$get('api/GetProvinceList', {}).then(res => {
       //   if (res.resultCode === '1') {
       //     that.provinceArr = res.resultValue
@@ -55,6 +61,8 @@ export default {
       let that = this
       that.cityArr = cityJson[provinceId]
       that.$set(that, 'showData', cityJson[provinceId])
+      // 自定义接口获取市数据 用法参考getProvinceList()注释内容
+
       // let paramData = {
       //   param: {
       //     provinceId: provinceId
@@ -70,6 +78,8 @@ export default {
     getAreaArr (cityId) {
       let that = this
       that.$set(that, 'showData', areaJson[cityId])
+      // 自定义接口获取区数据 用法参考getProvinceList()注释内容
+
       // let paramData = {
       //   param: {
       //     cityId: cityId
